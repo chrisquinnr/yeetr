@@ -3,8 +3,9 @@
 const program = require('commander')
 const inquirer = require('inquirer')
 const list = require('../lib/list')
-const serve = require('../lib/serve')
-
+const send = require('../lib/send')
+const error = require('../lib/error')
+const { validExpiry } = require('../lib/helper')
 program
   .command('list [dir]')
   .alias('ls')
@@ -15,12 +16,16 @@ program
   })
 
 program
-  .command('send [dir]')
+  .command('send [dir] [expiry]', { isDefault: true })
   .alias('s')
   .description('Yeet something')
 
-  .action((dir = '.') => {
-    serve(list(dir))
+  .action((dir = '.', expiry = '1d') => {
+    if (!validExpiry(expiry)) {
+      error('Invalid expiry token', expiry)
+      return
+    }
+    send(list(dir), expiry)
   })
 
 program.parse(process.argv)
