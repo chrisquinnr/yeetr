@@ -1,16 +1,10 @@
 #!/usr/bin/env node
 
 const program = require('commander')
-
+const inquirer = require('inquirer')
 const list = require('../lib/list')
 const serve = require('../lib/serve')
-inquirer.registerPrompt('autocomplete', require('./index'))
 
-/*******************************************/
-
-// Print coffee drinks menu
-// $ coffee-shop list
-// $ coffee-shop ls
 program
   .command('list <dir>') // sub-command name
   .alias('ls') // alternative sub-command is `al`
