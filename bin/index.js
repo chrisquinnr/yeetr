@@ -6,26 +6,20 @@ const list = require('../lib/list')
 const send = require('../lib/send')
 const error = require('../lib/error')
 const { validExpiry } = require('../lib/helper')
-program
-  .command('list [dir]')
-  .alias('ls')
-  .description('List files')
-
-  .action((dir = '.') => {
-    list(dir, true)
-  })
 
 program
-  .command('send [dir] [expiry]', { isDefault: true })
+  .arguments('[dir] [expiry]')
+  .option('-f, --file <file>', 'direct path to file')
+  .option('-e, --expiry <expiry>', 'expiry option')
   .alias('s')
   .description('Yeet something')
 
-  .action((dir = '.', expiry = '1d') => {
+  .action((dir = '.', expiry = '1d', options) => {
     if (!validExpiry(expiry)) {
       error('Invalid expiry token', expiry)
       return
     }
-    send(list(dir), expiry)
+    send(list(dir), expiry, options)
   })
 
 program.parse(process.argv)

@@ -52,11 +52,19 @@ yeet . 4w
 
 // another dir, in 2 months
 yeet /Users/rasputin/gifs 2m
+
+// passing a direct path using -f or --file
+// (no search)
+yeet -f /Users/rasputin/gifs/rara.gif -e 3d
 ```
 
-## Serve
+## Serve (Probably not happening)
 
-We're going to yeet your entire static site. Coming soon
+Quick, emphemeral static web hosting does have a use case but there are already some great existing solutions.
+
+Honestly, you should use netlify for this, or better yet, [surge](https://github.com/sintaxi/surge).
+
+Stay tuned for what we come up with in this space, though.
 
 # Built with
 
@@ -89,7 +97,7 @@ For situations where you need one-time file sharing that auto-expires, just `yee
 
 Only as secure as uploading something to internet. Which is probably not secure enough if you're asking this question.
 
-If you want to securely share credentials I'd head on over to magic wormhole.
+If you want to securely share credentials I'd head on over to [magic wormhole](https://github.com/magic-wormhole/magic-wormhole).
 
 ## Etmology
 
