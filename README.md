@@ -1,3 +1,5 @@
+![alt text](docs/yeetr_logo.png 'Yeetr')
+
 # Yeetr
 
 For when you want to yeet things. Files mainly.
@@ -45,7 +47,7 @@ yeet
 // current dir, expires in 3 days
 yeet . 3d
 
-// expires in 4 years
+// expires in 4 weeks
 yeet . 4w
 
 // another dir, in 2 months
@@ -99,4 +101,4 @@ If you want to securely share credentials I'd head on over to magic wormhole.
 >
 > > He was yeeting files late last night to family and friends
 
-![alt text](yeet.png 'I yought')
+![alt text](docs/yeet.png 'I yought')
