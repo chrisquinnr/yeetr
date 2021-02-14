@@ -8,9 +8,19 @@ Yeetr provides a cli wrapper for various methods of sharing files. Sharing and s
 
 ```
 npm install yeetr -g
+
+// from any directory
+yeet
 ```
 
-Yeetr by default will offer a list of files in your current working directory. You can scroll through this list, or use the autocomplete function to narrow down the selection. Hit enter to confirm, and that's it.
+Yeetr by default will offer a list of files in your current working directory.
+
+![alt text](docs/1.png 'Step 1')
+You can scroll through this list, or use the autocomplete function to narrow down the selection.
+
+![alt text](docs/2.png 'Step 2')
+Hit enter to confirm, and that's it.
+![alt text](docs/3.png 'Step 3')
 
 # Usage
 
