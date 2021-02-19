@@ -4,7 +4,14 @@
 
 For when you want to yeet things. Files mainly.
 
-Yeetr provides a cli wrapper for various methods of sharing files. Sharing and serving are, by design, ephemeral, so, they will expire. For persistent storage, sharing and deployments, you should use something else, like Netlify, Vercel, or roll your own S3 hosting.
+Yeetr provides a cli wrapper for various methods of sharing files. Sharing is, by design, ephemeral, so, the link that yeetr provides will expire, after a given time or when the file is downloaded. This is great for two reasons:
+
+- No confusion about which file the recipient has (e.g. searching through an email chain)
+- No old versions cluttering up Google Drive, dropbox, etc.
+
+For persistent storage, sharing and deployments, you should use something else, like Netlify, Vercel, or roll your own S3 hosting.
+
+Note that there's a limit of 100mb on files.
 
 ## Use
 
@@ -34,7 +41,7 @@ When you just want to send a file to someone, use
 yeet [dir] [expiry]
 ```
 
-So just running `yeet` in your current directory will let you select a file and then use our default 1 day expiry for hosting.
+So just running `yeet` in your current directory will let you select a file and then use our default 1 day expiry for hosting. We print the file to console output and you can copy/paste it as you wish.
 
 Sending files uses [file.io](https://file.io), a wonderful service that provides ephemeral file storage.
 
@@ -56,7 +63,22 @@ yeet /Users/rasputin/gifs 2m
 // passing a direct path using -f or --file
 // (no search)
 yeet -f /Users/rasputin/gifs/rara.gif -e 3d
+
 ```
+
+### Send >> Email (using Courier)
+
+A forthcoming feature we'll add is to be able to email a link to the file to whomever you wish. I'm using Courier at the moment to do this. To make this work you're going to need to put a copy of the `.yeetconfig.example` file in your home directory (`~/`), rename it to `.yeetconfig` and provide the details given to you when configuring Courier.
+
+Adding an `at` or `a` parameter to the one-line yeet will then attempt to email a link to the uploaded file to the receipient.
+
+```
+yeet -f avatar.jpg -e 3w -a pedro@emailservice.com
+```
+
+I plan to add direct support for e.g. Mailgun but I wanted to try out Courier, so here we are. The neat thing about courier is you can customise the email like this:
+
+![alt text](docs/email.png 'Such design.')
 
 ## Serve (Probably not happening)
 
